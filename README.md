@@ -25,14 +25,13 @@
 
 | カラム名           | 型         | オプション              | 説明            |
 |-------------------|-----------|-----------------------|----------------|
-| image             | string      | null: false                    | 商品画像                 |
 | name              | string      | null: false                    | 商品名                   |
 | description       | text        | null: false                    | 商品の説明                |
 | category_id       | integer     | null: false                    | カテゴリー                |
 | condition_id      | integer     | null: false                    | 商品の状態                |
 | shipping_fee_id   | integer     | null: false                    | 配送料の負担              |
 | prefecture_id     | integer     | null: false                    | 発送元の地域              |
-| shipping_days_id  | integer     | null: false                    | 発送までの日数             |
+| shipping_day_id  | integer     | null: false                    | 発送までの日数             |
 | price             | integer     | null: false                    | 販売価格                  |
 | user              | references  | null: false, foreign_key: true | 出品者（ユーザーの外部キー） |
 
