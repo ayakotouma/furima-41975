@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # ルートパスを設定
   root to: 'items#index'
   
-  resources :items
+  resources :items, only: [:index, :show, :new, :create, :edit, :update]
 
   # 他のルーティングも必要に応じて追加可能
 end
