@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @purchase_form = PurchaseForm.new
   end
 
   def create
@@ -24,6 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @purchase_form = PurchaseForm.new
   end
 
   def update
