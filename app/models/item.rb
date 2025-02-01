@@ -3,6 +3,9 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_one :purchase_record
+  def sold_out?
+    purchase_record.present?
+  end
 
   belongs_to :category
   belongs_to :condition
