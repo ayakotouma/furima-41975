@@ -20,11 +20,11 @@ RSpec.describe PurchaseForm, type: :model do
     end
 
     context '購入が失敗する場合' do # クレジットカードの実装後に復活させる
-      # it 'クレジットカード情報が空だと購入できない' do
-      #  @purchase_form.token = ''
-      #  @purchase_form.valid?
-      #  expect(@purchase_form.errors.full_messages).to include("Token can't be blank")
-      # end
+      it 'クレジットカード情報が空だと購入できない' do
+        @purchase_form.token = ''
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("Token can't be blank")
+      end
 
       it '郵便番号が空だと購入できない' do
         @purchase_form.postal_code = ''
@@ -79,6 +79,12 @@ RSpec.describe PurchaseForm, type: :model do
         @purchase_form.valid?
         expect(@purchase_form.errors.full_messages).to include('Phone number is invalid. Enter it without hyphens')
       end
+    end
+
+    it 'tokenが空では登録できないこと' do
+      @purchase_form.token = nil
+      @purchase_form.valid?
+      expect(@purchase_form.errors.full_messages).to include("Token can't be blank")
     end
   end
 end
