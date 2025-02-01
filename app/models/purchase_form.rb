@@ -4,8 +4,7 @@ class PurchaseForm
   attr_accessor :postal_code, :prefecture_id, :city, :address, :building_name, :phone_number, :user_id, :item_id, :token
 
   with_options presence: true do
-    validates :postal_code, presence: { message: "can't be blank" },
-                            format: { with: /\A\d{3}-\d{4}\z/, message: 'is invalid. Enter it as 123-4567' }
+    validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/, message: 'is invalid. Enter it as 123-4567' }
     validates :prefecture_id, presence: { message: "can't be blank" }, numericality: { other_than: 1, message: "can't be blank" }
     validates :city
     validates :address, presence: { message: "can't be blank" }
@@ -13,7 +12,7 @@ class PurchaseForm
                              format: { with: /\A\d{10,11}\z/, message: 'is invalid. Enter it without hyphens' }
     validates :user_id
     validates :item_id
-    validates :token, presence: true
+    validates :token
   end
 
   def save
