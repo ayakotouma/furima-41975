@@ -13,7 +13,7 @@ class PurchaseForm
                              format: { with: /\A\d{10,11}\z/, message: 'is invalid. Enter it without hyphens' }
     validates :user_id
     validates :item_id
-    # validates :token
+    validates :token, presence: true
   end
 
   def save
