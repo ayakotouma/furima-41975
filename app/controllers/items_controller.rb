@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @purchase_form = PurchaseForm.new
+    redirect_to root_path if current_user != @item.user || @item.sold_out?
   end
 
   def update
