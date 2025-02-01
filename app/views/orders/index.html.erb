@@ -1,3 +1,4 @@
+<%= include_gon %>
 <%= render "shared/second-header"%>
 
 <div class='transaction-contents'>
@@ -31,7 +32,8 @@
     </div>
     <%# /支払額の表示 %>
     <%= render "shared/error_messages", object: @purchase_form %>
-    <%= form_with(model: @purchase_form, url: item_orders_path(@item), method: :post, local: true, class: 'transaction-form-wrap') do |f| %>
+
+    <%= form_with(model: @purchase_form, url: item_orders_path(@item), method: :post, local: true, class: 'transaction-form-wrap', id: 'charge-form') do |f| %>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
@@ -86,7 +88,7 @@
           <label class="form-text">都道府県</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, { prompt: "都道府県を選択" }, {class:"select-box", id:"prefecture"}) %>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, { }, {class:"select-box", id:"prefecture"}) %>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
