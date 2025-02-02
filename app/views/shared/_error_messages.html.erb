@@ -1,4 +1,4 @@
-<% if @purchase_form.errors.any? %>
+<% if @purchase_form && @purchase_form.errors.any? %>
 <div class="error-alert">
   <ul>
     <% @purchase_form.errors.full_messages.each do |message| %>

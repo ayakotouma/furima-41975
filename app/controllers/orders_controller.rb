@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_root_if_seller, only: [:edit, :update, :destroy]
-  before_action :move_to_root_if_sold_out, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :create]
+  before_action :set_item, only: [:index, :create]
+  before_action :move_to_root_if_seller, only: [:index, :create]
+  before_action :move_to_root_if_sold_out, only: [:index, :create]
 
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
